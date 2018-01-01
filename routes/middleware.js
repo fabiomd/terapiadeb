@@ -7,11 +7,13 @@ var _ = require('lodash');
 exports.initLocals = function (req, res, next) {
 	res.locals.navLinks = [
 		{ label: 'Home', key: 'home', href: '/' },
-		{ label: 'Noticias', key: 'news', href: '/news'},
-		{ label: 'Comunicados', key: 'blog', href: '/blog' },
+		{ label: 'Eventos', key: 'news', href: '/news'},
+		{ label: 'Blog', key: 'blog', href: '/blog' },
 		{ label: 'Galeria', key: 'gallery', href: '/gallery' },
 		{ label: 'Contatos', key: 'contact', href: '/contact' },
 	];
+	if(req.user)
+		res.locals.navLinks.push({ label: 'Administrador', key: 'admin', href: '/keystone' });
 	res.locals.user = req.user;
 	next();
 };

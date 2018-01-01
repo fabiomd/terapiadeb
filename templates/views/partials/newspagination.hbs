@@ -1,25 +1,25 @@
 <ul class="pagination">
     {{#if filters.newstype}}
 	<li {{#unless data.news.previous}}class="disabled"{{/unless}}>
-		<a href="{{paginationPreviousWithTypeUrl data.news.previous}}">
+		<a href="{{newsPaginationPreviousWithTypeUrl data.news.previous}}">
 			<span class="glyphicon glyphicon-chevron-left"></span>
 		</a>
 	</li>
 	{{{paginationNavigation data.news.pages data.news.currentPage data.news.totalPages}}}
 	<li {{#unless data.news.next}}class="disabled"{{/unless}}>
-		<a href="{{paginationPreviousWithTypeUrl data.news.next}}">
+		<a href="{{newsPaginationPreviousWithTypeUrl data.news.next}}">
 			<span class="glyphicon glyphicon-chevron-right"></span>
 		</a>
 	</li>
 	{{else}}
 		<li {{#unless data.news.previous}}class="disabled"{{/unless}}>
-			<a href="{{paginationPreviousUrl data.news.previous}}">
+			<a href="{{newsPaginationPreviousUrl data.news.previous}}">
 				<span class="glyphicon glyphicon-chevron-left"></span>
 			</a>
 		</li>
-		{{{paginationNavigation data.news.pages data.news.currentPage data.news.totalPages}}}
+		{{{newsPaginationNavigation data.news.pages data.news.currentPage data.news.totalPages}}}
 		<li {{#unless data.news.next}}class="disabled"{{/unless}}>
-			<a href="{{paginationNextUrl data.news.next}}">
+			<a href="{{newsPaginationNextUrl data.news.next}}">
 				<span class="glyphicon glyphicon-chevron-right"></span>
 			</a>
 		</li>

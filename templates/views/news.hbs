@@ -1,24 +1,22 @@
 <div class="container" >
 	<div class="jumbotron">
-	    <div>
-		    <h1>Notícias Zup</h1>
-	    </div>
-	    </br></br>
 		<div class="row">
 			<div class="col-sm-8 col-md-9">
-				<h4 class="text-weight-normal">Mostrando {{ data.news.results.length}} notícias.</h4>
+				<h4 class="text-weight-normal">Exibindo {{ data.news.results.length}} eventos.</h4>
 				<div class="zupnews">
 					{{# each data.news.results}}
-					<a href="{{newsUrl id}}">
-						<div class="jumbotron" style = "background-color : white;">
+						<div class="jumbotron">
 							<div data-ks-editable="{{#if ../user}}{{adminEditableUrl ../../user _id}}{{/if}}" class="news">
 								<p class="lead text-muted">{{{newsTypesList newstypes prefix="Type in "}}}</p>
 								{{#if image}}<img src={{image.url}} width=600 height=400>{{/if}}
 								<center><h2 style="color:#000000;">{{{title}}}</h2></center>
 								<center><h3 style="color:#000000;">{{{subtitle}}}</h3></center>
 							</div>
+							<p>{{{content.brief}}}</p>
+							{{#if content.extended}}
+								<p class="mais"><a href="{{newsUrl id}}">Mais...</a></p>
+							{{/if}}
 						</div>
-					</a>
 					{{/each}}
 				</div>
 			</div>

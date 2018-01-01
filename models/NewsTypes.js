@@ -7,9 +7,9 @@ var keystone = require('keystone');
 
 var NewsTypes = new keystone.List('NewsTypes', {
 	autokey: { from: 'name', path: 'key', unique: true },
-	singular : 'tipo de notícia',
-    plural : 'tipos de notícias',
-	label:'Tipos de notícias'
+	singular : 'tipo de evento',
+    plural : 'tipos de eventos',
+	label:'Tipos de eventos'
 });
 
 NewsTypes.add({

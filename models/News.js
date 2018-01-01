@@ -9,18 +9,20 @@ var Types = keystone.Field.Types;
 var News = new keystone.List('News', {
 	map: { name: 'title' },
 	autokey: { path: 'slug', from: 'title', unique: true },
-	singular : 'notícia',
-    plural : 'notícias',
-	label:'Notícias'
+	track : true,
+	singular : 'evento',
+    plural : 'eventos',
+	label:'Eventos'
 });
 
 News.add({
 	title: { type: String, required: true },
+	featured :{type : Boolean, index :true, default : false},
 	publishedDate: { type: Types.Date, index: true},
 	image: { type: Types.CloudinaryImage },
 	content: {
-		brief: { type: Types.Html, wysiwyg: true, height: 150 },
-		extended: { type: Types.Html, wysiwyg: true, height: 400 },
+		brief: { type: Types.Textarea, wysiwyg: true, height: 150 },
+		extended: { type: Types.Textarea, wysiwyg: true, height: 400 },
 	},
 	newsType: { type: Types.Relationship, ref: 'NewsTypes', many: true },
 });

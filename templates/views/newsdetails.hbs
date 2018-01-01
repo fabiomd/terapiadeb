@@ -1,5 +1,5 @@
-<div class="container" style = "background-color : #013750;">
-    <div class="jumbotron" style = "background-color : #fafafa;">
+<div class="container">
+    <div class="jumbotron">
 		<div class="row">
 			<div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
 				<article>
@@ -12,11 +12,11 @@
 						<center><h2>{{data.news.title}}</h2><br></center>
 						<center><h3>{{data.news.subtitle}}</h3></center>
 						<h5>
-							{{{newsTypesList data.news.newsType prefix="News in "}}}
+							{{{newsTypesList data.news.newsType prefix="Evento em "}}}
 						</h5>
 					</div>
 					<div class="news" style = "white-space: initial; word-wrap: break-word; width: 700px;">
-						<p lang="en" class="auto">{{{data.news.content}}}</p>
+						<p lang="en" class="auto">{{{data.news.extended}}}</p>
 					</div>
 				</article>
 			</div>
