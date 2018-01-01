@@ -1059,7 +1059,8 @@ body {
   font-size: 14px;
   line-height: 1.42857;
   color: #333333;
-  background-color: #E6E7E9; }
+  background-color: #E6E7E9; 
+}
 
 input,
 button,
@@ -3951,7 +3952,9 @@ tbody.collapse.in {
   border-color: #00B2C2; }
   .navbar-default .navbar-brand {
     color: white; 
-  font-weight: bold;}
+  font-weight: bold;
+  font-style: italic;
+  font-family: Brush Script MT,cursive}
     .navbar-default .navbar-brand:hover, .navbar-default .navbar-brand:focus {
       color: #5e5e5e;
       background-color: transparent; }
@@ -4126,8 +4129,8 @@ tbody.collapse.in {
   .pagination > .active > span:focus {
     z-index: 2;
     color: #fff;
-    background-color: #337ab7;
-    border-color: #337ab7;
+    background-color: #00B2C2;
+    border-color: #00B2C2;
     cursor: default; }
   .pagination > .disabled > span,
   .pagination > .disabled > span:hover,
@@ -4591,8 +4594,8 @@ button.list-group-item {
 .list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
   z-index: 2;
   color: #fff;
-  background-color: #337ab7;
-  border-color: #337ab7; }
+  background-color: #00B2C2;
+  border-color: #00B2C2; }
   .list-group-item.active .list-group-item-heading,
   .list-group-item.active .list-group-item-heading > small,
   .list-group-item.active .list-group-item-heading > .small, .list-group-item.active:hover .list-group-item-heading,
@@ -5839,3 +5842,86 @@ button.close {
   display: block;
   max-width: 100%;
   height: auto; }
+
+.bottonview {
+  width: 100%;
+  /*height: 60px;*/
+  background-color: #00B2C2;
+  position: absolute;
+  opacity:.8;
+  /*bottom: -120px;*/
+}
+
+.metadata {
+  /*float: right;*/
+  /*padding-top: 5%;*/  
+  /*padding-right: 15%;*/
+}
+
+.metadata p{
+  /*text-align-last: right;*/
+  color : #E6E7E9;
+  font-weight: bold;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1.3em;
+  text-align: center;
+}
+
+.socialback{
+  width: 100%;
+  /*height: 70px;*/
+  /*background-color:  white;*/ 
+  padding-left: 45%;
+}
+
+.socialback p{
+  color : black;
+  font-weight: bold;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1.3em;
+  text-align: left;
+}
+
+.social {
+  display: inline-block;
+  /*width: 100%;*/
+  /*height: 10%;*/
+  /*padding-right: 15%;*/
+  /*margin: 0;*/
+  /*float: right;*/
+  /*background-color: #E6E7E9;*/
+}
+
+.social-img {
+  width: 40px;
+  height: 40px;
+  padding: 5px 5px;
+}
+
+.home {
+  height: 300px;
+}
+
+.home p {
+  float: right;
+  padding-right: 20%;
+  padding-top: 75px;
+  /*background: url(images/logo.png);*/
+  font-weight: bold;
+  font-size: 300%;
+}
+
+.home img {
+  float: left;
+  width: 300px;
+  height: 150px;
+}
+
+.home-second{
+  clear: both;
+  /*width: 400px;*/
+}
+
+/*.home-second p{
+  float: left;
+}*/

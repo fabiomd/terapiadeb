@@ -1,0 +1,44 @@
+<div class="container" >
+	<div class="jumbotron">
+	    <div>
+		    <h1>Notícias Zup</h1>
+	    </div>
+	    </br></br>
+		<div class="row">
+			<div class="col-sm-8 col-md-9">
+				<h4 class="text-weight-normal">Mostrando {{ data.news.results.length}} notícias.</h4>
+				<div class="zupnews">
+					{{# each data.news.results}}
+					<a href="{{newsUrl id}}">
+						<div class="jumbotron" style = "background-color : white;">
+							<div data-ks-editable="{{#if ../user}}{{adminEditableUrl ../../user _id}}{{/if}}" class="news">
+								<p class="lead text-muted">{{{newsTypesList newstypes prefix="Type in "}}}</p>
+								{{#if image}}<img src={{image.url}} width=600 height=400>{{/if}}
+								<center><h2 style="color:#000000;">{{{title}}}</h2></center>
+								<center><h3 style="color:#000000;">{{{subtitle}}}</h3></center>
+							</div>
+						</div>
+					</a>
+					{{/each}}
+				</div>
+			</div>
+			<div class="col-sm-4 col-md-3"">
+				<div style="margin-top: 70px; " class="list-group" >
+				    <div>
+					    <h3>Tipos de notícias</h3>
+				    </div>
+				    </br>
+				    <a href="/news/news" class="active list-group-item">
+					    <div
+							<font  style = "color :white; font-weight: bold;">Todos os tipos de notícias </font>
+						</div>
+					</a>
+					{{# each data.newstypes }}
+					<a href="{{newsTypesUrl key}}" class="false list-group-item"><font>{{name}}</font> </a>
+					{{/each}}
+				</div>
+			</div>
+		</div>
+		{{>newspagination}}
+	</div>
+</div>

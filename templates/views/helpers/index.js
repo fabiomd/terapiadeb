@@ -28,6 +28,152 @@ module.exports = function () {
 		}
 	};
 
+	// START NEWS
+
+	_helpers.newsTypesList = function (newstypes, options) {
+		var autolink = _.isString(options.hash.autolink) && options.hash.autolink === 'false' ? false : true;
+		var separator = _.isString(options.hash.separator) ? options.hash.separator : ', ';
+		var prefix = _.isString(options.hash.prefix) ? options.hash.prefix : '';
+		var suffix = _.isString(options.hash.suffix) ? options.hash.suffix : '';
+		var output = '';
+
+		function createTagList (tags) {
+			var tagNames = _.map(tags, 'name');
+
+			if (autolink) {
+				return _.map(tags, function (tag) {
+					return linkTemplate({
+						url: ('/news/' + tag.key),
+						text: _.escape(tag.name),
+					});
+				}).join(separator);
+			}
+			return _.escape(tagNames.join(separator));
+		}
+
+		if (newstypes && newstypes.length) {
+			output = prefix + createTagList(newstypes) + suffix;
+		}
+		return new hbs.SafeString(output);
+	}; 
+
+	_helpers.newsUrl = function (newsSlug, options) {
+		return ('/news/news/' + newsSlug);
+	};
+
+	_helpers.newsPageUrl = function (pageNumber, options) {
+		return '/news?page=' + pageNumber;
+	};
+
+	_helpers.pageTypeUrl = function (pageNumber, options) {
+		return '?page=' + pageNumber;
+	};
+
+	_helpers.newsTypesUrl = function (newsSlug, options) {
+		return ('/news/' + newsSlug);
+	};
+
+	_helpers.newsPaginationNavigation = function (pages, currentPage, totalPages, options) {
+		var html = '';
+
+		// pages should be an array ex.  [1,2,3,4,5,6,7,8,9,10, '....']
+		// '...' will be added by keystone if the pages exceed 10
+		_.each(pages, function (page, ctr) {
+			// create ref to page, so that '...' is displayed as text even though int value is required
+			var pageText = page;
+			// create boolean flag state if currentPage
+			var isActivePage = ((page === currentPage) ? true : false);
+			// need an active class indicator
+			var liClass = ((isActivePage) ? ' class="active"' : '');
+
+			// if '...' is sent from keystone then we need to override the url
+			if (page === '...') {
+				// check position of '...' if 0 then return page 1, otherwise use totalPages
+				page = ((ctr) ? totalPages : 1);
+			}
+
+			// get the pageUrl using the integer value
+			var newsPageUrl = _helpers.newsPageUrl(page);
+			// wrapup the html
+			html += '<li' + liClass + '>' + linkTemplate({ url: newsPageUrl, text: pageText }) + '</li>\n';
+		});
+		return html;
+	};
+
+	_helpers.newsPaginationNavigationWithType = function (pages, currentPage, totalPages, options) {
+		var html = '';
+
+		// pages should be an array ex.  [1,2,3,4,5,6,7,8,9,10, '....']
+		// '...' will be added by keystone if the pages exceed 10
+		_.each(pages, function (page, ctr) {
+			// create ref to page, so that '...' is displayed as text even though int value is required
+			var pageText = page;
+			// create boolean flag state if currentPage
+			var isActivePage = ((page === currentPage) ? true : false);
+			// need an active class indicator
+			var liClass = ((isActivePage) ? ' class="active"' : '');
+
+			// if '...' is sent from keystone then we need to override the url
+			if (page === '...') {
+				// check position of '...' if 0 then return page 1, otherwise use totalPages
+				page = ((ctr) ? totalPages : 1);
+			}
+
+			// get the pageUrl using the integer value
+			var newsPageUrl = _helpers.pageTypeUrl(page); 
+			// _helpers.newsPageUrl(page); 
+			// wrapup the html
+			html += '<li' + liClass + '>' + linkTemplate({ url: newsPageUrl, text: pageText }) + '</li>\n';
+		});
+		return html;
+	};
+
+	_helpers.newsPaginationPreviousUrl = function (previousPage, totalPages) {
+		if (previousPage === false) {
+			previousPage = 1;
+		}
+		return _helpers.newsPageUrl(previousPage);
+	};
+
+	// special helper to ensure that we always have a valid next page url set
+	// even if the link is disabled, will default to totalPages
+	_helpers.newsPaginationNextUrl = function (nextPage, totalPages) {
+		if (nextPage === false) {
+			nextPage = totalPages;
+		}
+		return _helpers.newsPageUrl(nextPage);
+	};
+
+	_helpers.paginationPreviousWithTypeUrl = function (previousPage, totalPages) {
+		if (previousPage === false) {
+			previousPage = 1;
+		}
+		return _helpers.pageTypeUrl(previousPage);
+	};
+
+	_helpers.paginationNextWithTypeUrl = function (nextPage, totalPages) {
+		if (nextPage === false) {
+			nextPage = totalPages;
+		}
+		return _helpers.pageTypeUrl(nextPage);
+};
+
+    _helpers.newsPaginationPreviousWithTypeUrl = function (previousPage, totalPages) {
+		if (previousPage === false) {
+			previousPage = 1;
+		}
+		return _helpers.pageTypeUrl(previousPage);
+	};
+
+	_helpers.newsPaginationNextWithTypeUrl = function (nextPage, totalPages) {
+		if (nextPage === false) {
+			nextPage = totalPages;
+		}
+		return _helpers.pageTypeUrl(nextPage);
+	};
+
+	// END NEWS
+
 	/**
 	 * Port of Ghost helpers to support cross-theming
 	 * ==============================================
@@ -206,6 +352,8 @@ module.exports = function () {
 	_helpers.categoryUrl = function (categorySlug, options) {
 		return ('/blog/' + categorySlug);
 	};
+
+
 
 	// ### Pagination Helpers
 	// These are helpers used in rendering a pagination system for content

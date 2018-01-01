@@ -9,6 +9,9 @@ var Types = keystone.Field.Types;
 var Post = new keystone.List('Post', {
 	map: { name: 'title' },
 	autokey: { path: 'slug', from: 'title', unique: true },
+	singular : 'postagem',
+    plural : 'postagens',
+	label:'Postagens'
 });
 
 Post.add({

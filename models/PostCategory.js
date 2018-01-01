@@ -7,6 +7,9 @@ var keystone = require('keystone');
 
 var PostCategory = new keystone.List('PostCategory', {
 	autokey: { from: 'name', path: 'key', unique: true },
+	singular : 'categoria',
+    plural : 'categorias',
+	label:'Categorias'
 });
 
 PostCategory.add({
