@@ -10,7 +10,7 @@ exports.newslist = function(req, res){
 	// Init locals
 	locals.section = 'ZUP News';
 	locals.filters = {
-		newstype: req.params.newstype,
+		newstype: req.params.eventtype,
 	};
 	locals.data = {
 		news: [],
@@ -45,7 +45,7 @@ exports.newslist = function(req, res){
 	// Load the current newstypes filter
 	view.on('init', function (next) {
 
-		if (req.params.newstype) {
+		if (req.params.eventtype) {
 			keystone.list('NewsTypes').model.findOne({ key: locals.filters.newstype }).exec(function (err, result) {
 				locals.data.newstype = result;
 				next(err);

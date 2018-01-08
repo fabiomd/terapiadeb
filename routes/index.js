@@ -19,9 +19,9 @@ exports = module.exports = function (app) {
 	app.get('/blog/post/:post', routes.views.post);
 	app.get('/gallery', routes.views.gallery);
 	app.all('/contact', routes.views.contact);	
-	app.get('/news', routes.views.news.newslist);
-    app.get('/news/:newstype?', routes.views.news.newslist);
-    app.get('/news/:news', routes.views.news.newslist);
-	app.get('/news/news/:id', routes.views.news.newsDetails);
+	app.get('/events', routes.views.news.newslist);
+    app.get('/events/:eventtype?', routes.views.news.newslist);
+    app.get('/events/:events', routes.views.news.newslist);
+	app.get('/events/events/:id', routes.views.news.newsDetails);
 
 };

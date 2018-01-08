@@ -43,7 +43,7 @@ module.exports = function () {
 			if (autolink) {
 				return _.map(tags, function (tag) {
 					return linkTemplate({
-						url: ('/news/' + tag.key),
+						url: ('/events/' + tag.key),
 						text: _.escape(tag.name),
 					});
 				}).join(separator);
@@ -58,11 +58,11 @@ module.exports = function () {
 	}; 
 
 	_helpers.newsUrl = function (newsSlug, options) {
-		return ('/news/news/' + newsSlug);
+		return ('/events/events/' + newsSlug);
 	};
 
 	_helpers.newsPageUrl = function (pageNumber, options) {
-		return '/news?page=' + pageNumber;
+		return '/events?page=' + pageNumber;
 	};
 
 	_helpers.pageTypeUrl = function (pageNumber, options) {
@@ -70,7 +70,7 @@ module.exports = function () {
 	};
 
 	_helpers.newsTypesUrl = function (newsSlug, options) {
-		return ('/news/' + newsSlug);
+		return ('/events/' + newsSlug);
 	};
 
 	_helpers.newsPaginationNavigation = function (pages, currentPage, totalPages, options) {

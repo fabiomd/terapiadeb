@@ -3,20 +3,16 @@
 		<div class="row">
 			<div class="col-sm-10 col-sm-offset-1 col-md-8 col-md-offset-2">
 				<article>
-					<p><a href="/news">&larr; voltar as notícias</a></p>
+					<p><a href="/events">&larr; voltar aos eventos</a></p>
 					<hr>
 					<div class="news">
 						{{#if data.news.image}}<img src={{data.news.image.url}} width=700 height=550 align=center>{{/if}}
 					</div>
 					<div class = "news">
 						<center><h2>{{data.news.title}}</h2><br></center>
-						<center><h3>{{data.news.subtitle}}</h3></center>
-						<h5>
-							{{{newsTypesList data.news.newsType prefix="Evento em "}}}
-						</h5>
 					</div>
 					<div class="news" style = "white-space: initial; word-wrap: break-word; width: 700px;">
-						<p lang="en" class="auto">{{{data.news.extended}}}</p>
+						<p lang="en" class="auto">{{{data.news.content.extended}}}</p>
 					</div>
 				</article>
 			</div>

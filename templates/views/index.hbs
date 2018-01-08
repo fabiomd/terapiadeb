@@ -16,11 +16,15 @@
 			{{# each data.carrousel}}
 				{{#if @first}}
 					<div class="item active">
-				        <img src="{{image.url}}" alt="{{title}}"  style = " width: 100%; height : 500px;">
+					    <a href = {{link}}>
+					        <img src="{{image.url}}" alt="{{title}}"  style = " width: 100%; height : 500px;">
+				        </a>
 			        </div>
 			    {{else}}
 				    <div class="item">
-				        <img src="{{image.url}}" alt="{{title}}"  style = " width: 100%; height : 500px;">
+					    <a href = {{link}}>
+					        <img src="{{image.url}}" alt="{{title}}"  style = " width: 100%; height : 500px;">
+				        </a>
 			        </div>
 			    {{/if}}
 			{{/each}}

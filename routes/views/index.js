@@ -44,7 +44,7 @@ exports = module.exports = function (req, res) {
 						title : results.news.item[i].title,
 						image : results.news.item[i].image,
 						id : results.news.item[i].id,
-						type : 'news'
+						link : '/events/events/'+ results.news.item[i].id
 					})
 				}
 				for(var i=0;i<results.post.item.length;i++){
@@ -52,7 +52,7 @@ exports = module.exports = function (req, res) {
 						title : results.news.item[i].title,
 						image : results.post.item[i].image,
 						id : results.post.item[i],
-						type : 'post'
+						link : '/blog/post/' + results.news.item[i].title
 					})
 				}
 
