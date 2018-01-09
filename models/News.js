@@ -16,15 +16,16 @@ var News = new keystone.List('News', {
 });
 
 News.add({
-	title: { type: String, required: true },
-	featured :{type : Boolean, index :true, default : false},
-	publishedDate: { type: Types.Date, index: true},
-	image: { type: Types.CloudinaryImage },
+	title: { type: String, required: true, initial : true ,label : "Titulo"},
+	featured :{type : Boolean, index :true, default : false, initial : true,label : "Destaque"},
+	publishedDate: { type: Types.Date, index: true, initial : true,label : "Data de publicação"},
+	image: { type: Types.CloudinaryImage , initial : true,label : "Imagem"},
 	content: {
-		brief: { type: Types.Textarea, wysiwyg: true, height: 150 },
-		extended: { type: Types.Textarea, wysiwyg: true, height: 400 },
+		brief: { type: Types.Textarea, wysiwyg: true, height: 150 , label : "Texto resumido"},
+		extended: { type: Types.Textarea, wysiwyg: true, height: 400 , label : "Texto completo"},
 	},
-	newsType: { type: Types.Relationship, ref: 'NewsTypes', many: true },
+	link : {type :Types.Url, initial : true, label : "Link"},
+	newsType: { type: Types.Relationship, ref: 'NewsTypes', many: true , initial : true,label : "Tipo do evento"},
 });
 
 News.schema.virtual('content.full').get(function () {

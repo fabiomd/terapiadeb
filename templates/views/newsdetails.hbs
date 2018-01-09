@@ -6,7 +6,7 @@
 					<p><a href="/events">&larr; voltar aos eventos</a></p>
 					<hr>
 					<div class="news">
-						{{#if data.news.image}}<img src={{data.news.image.url}} width=700 height=550 align=center>{{/if}}
+						{{#if data.news.image}}<img src={{data.news.image.url}} width=700 height=500 align=center>{{/if}}
 					</div>
 					<div class = "news">
 						<center><h2>{{data.news.title}}</h2><br></center>
@@ -14,6 +14,9 @@
 					<div class="news" style = "white-space: initial; word-wrap: break-word; width: 700px;">
 						<p lang="en" class="auto">{{{data.news.content.extended}}}</p>
 					</div>
+					{{#if data.news.link}}
+						<p class="mais" style="float:right;"><a href="{{data.news.link}}">Fonte da matéria</a></p>
+					{{/if}}
 				</article>
 			</div>
 		</div>

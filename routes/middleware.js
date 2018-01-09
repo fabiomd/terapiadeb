@@ -10,7 +10,7 @@ exports.initLocals = function (req, res, next) {
 		{ label: 'Eventos', key: 'events', href: '/events'},
 		{ label: 'Blog', key: 'blog', href: '/blog' },
 		{ label: 'Galeria', key: 'gallery', href: '/gallery' },
-		{ label: 'Contatos', key: 'contact', href: '/contact' },
+		{ label: 'Contato', key: 'contact', href: '/contact' },
 	];
 	if(req.user)
 		res.locals.navLinks.push({ label: 'Administrador', key: 'admin', href: '/keystone' });

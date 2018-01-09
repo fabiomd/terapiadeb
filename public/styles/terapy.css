@@ -5836,6 +5836,7 @@ button.close {
   margin-top: 30px;
   border-top: 1px solid #eeeeee;
   padding-top: 30px;
+  background-color: #eeeeee;
   color: #777777; }
 
 .gallery-image img {
@@ -5899,14 +5900,13 @@ button.close {
 }
 
 .home {
-  height: 300px;
+  min-height: 400px;
 }
 
 .home p {
   float: right;
   padding-right: 20%;
   padding-top: 75px;
-  /*background: url(images/logo.png);*/
   font-weight: bold;
   font-size: 300%;
 }
@@ -5919,12 +5919,12 @@ button.close {
 
 .home-second{
   float: left;
-  width: 50%;
+  width: 45%;
   /*clear: both;*/
 }
 
 .home-third{
-  width: 50%;
+  width: 45%;
   /*clear: both;*/
   float: right;
   /*width: 400px;*/

@@ -39,7 +39,7 @@ keystone.set('locals', {
 keystone.set('routes', require('./routes'));
 
 keystone.set('nav', {
-	news : ['news' , 'NewsTypes'],
+	eventos : ['news' , 'NewsTypes'],
 	posts: ['posts', 'post-categories'],
 	galleries: 'galleries',
 	enquiries: 'enquiries',

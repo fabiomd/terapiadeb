@@ -15,17 +15,18 @@ var Post = new keystone.List('Post', {
 });
 
 Post.add({
-	title: { type: String, required: true },
-	featured :{type : Boolean, index :true , default : false},
-	state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true },
-	author: { type: Types.Relationship, ref: 'User', index: true },
-	publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } },
-	image: { type: Types.CloudinaryImage },
+	title: { type: String, required: true ,initial : true, label:"Titulo"},
+	featured :{type : Boolean, index :true , default : false,initial : true, label:"Destaque"},
+	state: { type: Types.Select, options: 'draft, published, archived', default: 'draft', index: true,initial : true , state:"Estado"},
+	author: { type: Types.Relationship, ref: 'User', index: true ,initial : true, label : "Autor"},
+	publishedDate: { type: Types.Date, index: true, dependsOn: { state: 'published' } ,initial : true, label:"Data de publicação"},
+	image: { type: Types.CloudinaryImage ,initial : true,label:"Imagem"},
 	content: {
-		brief: { type: Types.Textarea, wysiwyg: true, height: 150 },
-		extended: { type: Types.Textarea, wysiwyg: true, height: 400 },
+		brief: { type: Types.Textarea, wysiwyg: true, height: 150 ,label:"Texto resumido"},
+		extended: { type: Types.Textarea, wysiwyg: true, height: 400 , label:"Texto completo"},
 	},
-	categories: { type: Types.Relationship, ref: 'PostCategory', many: true },
+	link : {type :Types.Url, initial : true, label : "Link"},
+	categories: { type: Types.Relationship, ref: 'PostCategory', many: true ,initial : true, label:"Categoria"},
 });
 
 Post.schema.virtual('content.full').get(function () {
